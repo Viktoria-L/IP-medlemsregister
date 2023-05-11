@@ -1,0 +1,33 @@
+<%- include('./partials/head.ejs') %>
+<%- include('./partials/nav.ejs') %>
+
+<h2>Lägg till ny medlem:</h2>
+<div class="page-content">
+<form action="/members/add" method="post" class="add-member-form">
+    <label for="name">Namn</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+     <label for="email">E-post</label>
+     <input type="email" id="email" name="email" required>
+     <br>
+    <label for="phone">Telefonnummer</label>
+    <input type="tel" id="phone" name="phone" required>
+    <br>
+    <label for="joined">Medlem sedan</label>
+    <input type="date" id="joined" name="joined" value="<%= new Date().toISOString().split('T')[0] %>" required>
+    <br>
+    <label for="experience">Erfarenhet</label>
+    <select name="experience" id="experience">
+        <option value="Nybörjare">Nybörjare</option>
+        <option value="Amatör">Amatör</option>
+        <option value="Avancerad">Avancerad</option>
+        <option value="Professionell">Professionell</option>
+    </select>
+    <br>
+     <button>Spara</button>
+    </form>
+    <img src="/lake.jpg" alt="Lake and mountains" class="add-image">
+</div>
+
+
+<%- include('./partials/footer.ejs') %>

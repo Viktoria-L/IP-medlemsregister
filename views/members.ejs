@@ -1,0 +1,26 @@
+<%- include('./partials/head.ejs') %>
+<%- include('./partials/nav.ejs') %>
+<% const memberCount = members.length; %>
+
+<!-- Medlemmarna är uppställda i en tabell med tillhörande ikoner för sorteringen, den första ikonen sorterar enligt ordningen i databasen
+de två nästkommande i asc resp desc order -->
+<h2>Här nedan listas alla medlemmar</h2>
+<h3>Just nu finns det <%=memberCount %> medlemmar</h3>
+<table class="memberslist">
+    <tr class="headTR">
+        <th><i class="fa-solid fa-sort" onclick="location = '/members/'"></i>Medlemmar<i class="fa-solid fa-arrow-up-a-z" onclick="location ='/members/ascending'"></i><i class="fa-solid fa-arrow-down-z-a" onclick="location ='/members/descending'"></i></th>
+        <th>Erfarenhetsnivå</th>
+        <th>Länk</th>
+    </tr>
+    <% members.forEach((member) => { %>
+        <tr class="rowTR">
+        <td><%= member.name %></td>
+        <td><%= member.experience %></td>
+        <td><a href="/member/<%= member._id %>">Detaljer</a></td>
+        </tr>
+    <% }); %>
+    
+
+</table>
+
+<%- include('./partials/footer.ejs') %>

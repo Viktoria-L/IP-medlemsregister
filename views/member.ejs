@@ -1,0 +1,61 @@
+<%- include('./partials/head.ejs') %>
+<%- include('./partials/nav.ejs') %>
+
+<h2 class="member-page">Medlemssida</h2>
+<div class="member-card">
+
+    <p>Namn: <%= name %></p>
+    <p>Email: <%= email %></p>
+    <p>Telefon: <%= phone %></p>
+    <p>Medlem sedan: <%= joined %></p>
+    <p>Erfarenhet: <%= experience %></p>
+    <button id="editBtn">Redigera</button>
+</div>
+
+<div id="edit-info" class="hidden">
+    <form action="/member/<%= id %>?_method=PUT" method="post">
+        <label for="name">Namn</label>
+        <input type="text" id="name" name="name"  value="<%= name %>" required>
+        <br>
+         <label for="email">E-post</label>
+         <input type="email" id="email" name="email" value="<%= email %>"  required>
+         <br>
+        <label for="phone">Telefonnummer</label>
+        <input type="tel" id="phone" name="phone" value="<%= phone %>"  required>
+        <br>
+        <label for="joined">Medlem sedan</label>
+        <input type="date" id="joined" name="joined" value="<%= joined %>"  required>
+        <br>
+    
+        <label for="experience">Erfarenhet</label>
+        <select name="experience" id="experience">           
+                <option value="Nybörjare"  <% if (experience === 'nybörjare') { %>selected<% } %>>Nybörjare</option>
+                <option value="Amatör"  <% if (experience === 'Amatör') { %>selected<% } %>>Amatör</option>
+                <option value="Avancerad" <% if (experience === 'Avancerad') { %>selected<% } %>>Avancerad</option>
+                <option value="Professionell" <% if (experience === 'Professionell') { %>selected<% } %>>Professionell</option>
+                     </select>
+                     <br>
+         <button class="saveBtn">Spara</button>
+    </form>
+    <form action="/delete/<%= id %>" method="post">
+        <button class="removeBtn">Ta bort medlem</button>
+    </form>
+</div>
+
+<script>
+    const editBtn = document.getElementById('editBtn');
+    const editInfo = document.getElementById('edit-info');
+  
+    editBtn.addEventListener('click', () => {
+        if(editInfo.classList.contains("hidden")){
+      editInfo.classList.remove('hidden');
+      editBtn.innerText = "Stäng";
+        } else {
+            editInfo.classList.add('hidden');
+      editBtn.innerText = "Redigera";
+
+        }
+    });
+  </script>
+
+<%- include('./partials/footer.ejs') %>
