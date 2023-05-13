@@ -25,11 +25,7 @@ header {
     height: 350px;
     position: relative;
 }
-/* .navbar ul{
-    padding: 0;
-    margin: 0;
 
-} */
 .site-title {
     display: flex;
     justify-content: space-between;
@@ -40,7 +36,6 @@ header {
     position: absolute;
     bottom: 5%;
     left: 2%;
-    /* border: 1px solid rgba(255, 255, 255, 0.427); */
     padding: 10px;
     width: 280px;
 }
