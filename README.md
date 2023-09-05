@@ -1,7 +1,8 @@
-# Medlemsregistret
+# Medlemsregistret 🗒️ 📝
 ## Inlämningsuppgift 1 Javascript som backendspråk
 Din uppgift är att programmera ett medlemsregister för en klubb. Vad klubben har för
-inriktning är upp till dig.
+inriktning är upp till dig. 
+Uppgiften är genomförd med Javascript, Node.js, MongoDB och Express.
 
 ### Medlemsregistret skall ha fyra sidor:
 • Startsida
